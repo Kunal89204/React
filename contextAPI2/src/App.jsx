@@ -2,6 +2,9 @@ import React from "react";
 import { ThemeProvider } from "./context/Theme";
 import { useState } from "react";
 import { useEffect } from "react";
+import ThemeBtn from "./components/ThemeBtn";
+import Card from "./components/Card";
+
 
 const App = () => {
   const [themeMode, setThemeMode] = useState("light");
@@ -20,7 +23,19 @@ const App = () => {
   }, [themeMode]);
   return (
     <ThemeProvider value={{ themeMode, lightTheme, darkTheme }}>
-      <h1 className="p-4 bg-pink-600 text-3xl">Chai </h1>
+     
+<div className="flex flex-wrap min-h-screen items-center">
+                <div className="w-full">
+                    <div className="w-full max-w-sm mx-auto flex justify-end mb-4">
+                        <ThemeBtn />
+                    </div>
+
+                    <div className="w-full max-w-sm mx-auto">
+                       <Card />
+                    </div>
+                </div>
+            </div>
+
     </ThemeProvider>
   );
 };
